@@ -1,0 +1,176 @@
+/* Set border-box sizing */
+html {
+    box-sizing: border-box;
+
+    background: var(--background-grey);
+
+    /* Setting up font defaults */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: var(--body-white);
+}
+
+/* Set border-box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* Vars */
+:root {
+    /* Diff "greys" */
+    --background-grey: #31363b;
+    --border-grey: #4B5056;
+    --section-grey: #212529;
+
+    /* Text */
+    --body-white: #ced4da;
+    --link-blue: #a4a9ff;
+
+    /* Widths and padding */
+    --border-width: 2px;
+    --side-padding: 14%;
+    --side-padding-smaller: 5%;
+}
+
+/* Make body scrollable to test sticky navbar */
+body {
+    height: 200vh;
+}
+
+nav {
+    /* Flexbox used to arrange navbar */
+    display: flex;
+
+    /* Full width screens center all content in middle 71% */
+    padding: 17px var(--side-padding);
+
+    /* Top-Bottom borders only */
+    border: 1.8px solid var(--border-grey);
+    border-left: 0;
+    border-right: 0;
+
+    /* Darker grey */
+    background: var(--section-grey);
+
+    /* Stick to top on scroll */
+    position: sticky;
+    top: 0;
+}
+
+.btn {
+    /* Inline-flex used to arrange text & icons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    /* Full width screens will have extra side padding */
+    padding: 7px 14px;
+
+    /* Coloring + border styling */
+    background: var(--background-grey);
+    border: var(--border-width) solid var(--border-grey);
+    border-radius: 5px;
+
+    /* Overwrite default font style for true white, boldened text */
+    color: white;
+    font-weight: bold;
+}
+
+.btn:hover {
+    /* Brighten to indicate hover */
+    filter: brightness(150%)
+}
+
+.nav-items {
+    /* Take up middle 10 flex worth of navbar space */
+    flex: 10;
+
+    /* Flexbox used to arrange text */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    /* Provides space from first button on navbar */
+    margin-left: 30px;
+}
+
+.nav-item {
+    /* Inline-flex used to arrange text & icons */
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: baseline;
+
+    /* Provides spacing between nav item links */
+    margin: 0 15px;
+}
+
+/* Material icon resizing w/ higher prio specifier rules */
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-20 {
+    font-size: 20px;
+}
+
+/* Default link styling is gaudy */
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* Indicate text is a link - on hover */
+a:hover {
+    /* True white, underlined (offset by half an em) */
+    color: white;
+    text-decoration: underline white;
+    text-underline-offset: 0.5em;
+}
+
+/* Medium-sized screens styling */
+@media screen and (max-width: 1300px) {
+    /* center all content in middle 90% */
+    nav {
+        padding: 17px var(--side-padding-smaller);
+    }
+}
+
+/* Small-sized screens styling */
+@media screen and (max-width : 840px) {
+    /* center all content in middle 90% */
+    /* + less vertical padding */
+    nav {
+        padding: 9px var(--side-padding-smaller);
+    }
+
+    /* Navbar is too crowded for detailed buttons, hide the text */
+    .extra-text {
+        display: none;
+    }
+
+    /* Update button styling due to missing text */
+    .btn {
+        padding: 7px;
+    }
+
+    /* Reduced nav link spacing */
+    .nav-item {
+        margin: 0 10px;
+    }
+
+    /* Final nav link hidden due to space limits */
+    .nav-item:last-child {
+        display: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Dark theme styles here */
+}
+
+@media (prefers-colo-scheme: light) {
+    /* Light theme styles here */
+}
